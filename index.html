@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akhil Sivanandan | Senior Software Developer</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--card:#12121a;--border:#1e1e2e;--accent:#6c63ff;--accent2:#00d4aa;--text:#e0e0e0;--muted:#888;--white:#fff}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none;transition:.3s}
+a:hover{color:var(--accent2)}
+
+/* Nav */
+nav{position:fixed;top:0;width:100%;z-index:100;backdrop-filter:blur(20px);background:rgba(10,10,15,.75);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;transition:.3s}
+nav .logo{font-size:1.3rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav ul{list-style:none;display:flex;gap:2rem}
+nav ul a{color:var(--muted);font-size:.9rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;transition:.3s}
+nav ul a:hover{color:var(--white)}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:2rem}
+.hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(108,99,255,.15),transparent 70%);top:-100px;right:-100px;border-radius:50%;animation:pulse 6s ease-in-out infinite}
+.hero::after{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,170,.1),transparent 70%);bottom:-150px;left:-100px;border-radius:50%;animation:pulse 8s ease-in-out infinite reverse}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem}
+.hero h1 .gradient{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.2rem;color:var(--muted);max-width:600px;margin:0 auto 2rem}
+.hero-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{padding:.8rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;transition:.3s;display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:var(--white)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(108,99,255,.3);color:var(--white)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text);background:transparent}
+.btn-outline:hover{border-color:var(--accent);color:var(--white);transform:translateY(-2px)}
+
+/* Sections */
+section{padding:6rem 2rem}
+.container{max-width:1100px;margin:0 auto}
+.section-label{text-transform:uppercase;font-size:.8rem;letter-spacing:3px;color:var(--accent);font-weight:600;margin-bottom:.5rem}
+.section-title{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:3rem;color:var(--white)}
+
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:.3s;position:relative;overflow:hidden}
+.skill-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.skill-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:.3s}
+.skill-card:hover::before{opacity:1}
+.skill-card h3{color:var(--white);font-size:1.1rem;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.skill-card h3 .icon{font-size:1.3rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{background:rgba(108,99,255,.1);color:var(--accent);padding:.3rem .8rem;border-radius:20px;font-size:.8rem;font-weight:500;border:1px solid rgba(108,99,255,.15);transition:.3s}
+.tag:hover{background:rgba(108,99,255,.2)}
+
+/* Timeline */
+.timeline{position:relative;padding-left:3rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent)}
+.timeline-item{position:relative;margin-bottom:3rem;padding:2rem;background:var(--card);border:1px solid var(--border);border-radius:16px;transition:.3s}
+.timeline-item:hover{border-color:var(--accent);transform:translateX(6px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.timeline-item::before{content:'';position:absolute;left:-3rem;top:2.4rem;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);transform:translateX(-6px);box-shadow:0 0 15px rgba(108,99,255,.4)}
+.timeline-item .date{color:var(--accent2);font-size:.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:.3rem}
+.timeline-item h3{color:var(--white);font-size:1.3rem;margin-bottom:.3rem}
+.timeline-item .company{color:var(--accent);font-weight:600;margin-bottom:1rem;font-size:1rem}
+.timeline-item ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.timeline-item li{color:var(--muted);font-size:.92rem;padding-left:1.2rem;position:relative}
+.timeline-item li::before{content:'▹';position:absolute;left:0;color:var(--accent2)}
+
+/* Education */
+.edu-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:.3s;position:relative;overflow:hidden}
+.edu-card:hover{border-color:var(--accent2);transform:translateY(-4px)}
+.edu-card .degree{color:var(--white);font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+.edu-card .school{color:var(--accent);font-weight:500;margin-bottom:.3rem}
+.edu-card .details{color:var(--muted);font-size:.9rem}
+
+/* Contact */
+.contact-section{text-align:center}
+.contact-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:1rem}
+.contact-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem 2.5rem;display:flex;align-items:center;gap:1rem;transition:.3s;cursor:pointer;text-decoration:none}
+.contact-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 15px 30px rgba(0,0,0,.3);color:var(--white)}
+.contact-card .c-icon{font-size:1.5rem}
+.contact-card .c-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.contact-card .c-value{color:var(--white);font-weight:600;font-size:.95rem}
+
+/* Footer */
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+
+/* Mobile */
+.mobile-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  nav ul{display:none;position:absolute;top:100%;left:0;width:100%;flex-direction:column;background:rgba(10,10,15,.95);padding:1.5rem 2rem;gap:1rem;border-bottom:1px solid var(--border)}
+  nav ul.open{display:flex}
+  .mobile-toggle{display:block}
+  .timeline{padding-left:2rem}
+  .timeline-item::before{left:-2rem;transform:translateX(-6px)}
+  section{padding:4rem 1.2rem}
+}
+
+/* Scroll animations */
+.reveal{opacity:0;transform:translateY(30px);transition:.8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo">AS</div>
+  <button class="mobile-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+  <ul>
+    <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+    <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+    <li><a href="#education" onclick="closeMenu()">Education</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Hi, I'm <span class="gradient">Akhil Sivanandan</span></h1>
+    <p>Senior Software Developer specializing in Angular, .NET, and Azure — building scalable, high-impact applications.</p>
+    <div class="hero-links">
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <a href="https://github.com/akhilsivdn" target="_blank" class="btn btn-outline">⟢ GitHub</a>
+      <a href="https://www.linkedin.com/in/akhil-sivanandan" target="_blank" class="btn btn-outline">⟢ LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-label reveal">Expertise</div>
+    <h2 class="section-title reveal">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <h3><span class="icon">⟨/⟩</span> Languages & Frameworks</h3>
+        <div class="skill-tags">
+          <span class="tag">.NET Core (C#)</span><span class="tag">Angular 18</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">HTML5</span><span class="tag">CSS3 / SCSS</span><span class="tag">REST API</span><span class="tag">XAML / MVVM</span><span class="tag">jQuery</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="icon">☁</span> Cloud & DevOps</h3>
+        <div class="skill-tags">
+          <span class="tag">Azure App Services</span><span class="tag">Azure Functions</span><span class="tag">Cosmos DB</span><span class="tag">Azure DevOps</span><span class="tag">Docker</span><span class="tag">CI/CD Pipelines</span><span class="tag">Terraform</span><span class="tag">Service Bus</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="icon">⊞</span> Databases</h3>
+        <div class="skill-tags">
+          <span class="tag">SQL Server</span><span class="tag">MySQL</span><span class="tag">SQLite</span><span class="tag">Cosmos DB</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="icon">📱</span> Mobile & Cross-Platform</h3>
+        <div class="skill-tags">
+          <span class="tag">Ionic 4</span><span class="tag">Cordova</span><span class="tag">UWP</span><span class="tag">Android Studio</span><span class="tag">Xcode</span><span class="tag">Windows Mobile</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="icon">⚙</span> Tools & Methodologies</h3>
+        <div class="skill-tags">
+          <span class="tag">Agile / Scrum</span><span class="tag">Visual Studio</span><span class="tag">VS Code</span><span class="tag">Cursor</span><span class="tag">Git / GitHub</span><span class="tag">TFS</span><span class="tag">Power Automate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:rgba(18,18,26,.5)">
+  <div class="container">
+    <div class="section-label reveal">Career</div>
+    <h2 class="section-title reveal">Work Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="date">June 2024 – Present</div>
+        <h3>Senior Software Developer</h3>
+        <div class="company">Lumachain</div>
+        <ul>
+          <li>Designing scalable web apps with Angular & .NET for real-time dashboards and compliance tracking</li>
+          <li>Building multi-mode analytics dashboards (Live, Daily, Weekly, Comparison)</li>
+          <li>Provisioning infrastructure with Terraform — Cosmos DB, Azure SQL, Functions</li>
+          <li>Creating CI/CD pipelines in Azure DevOps for automated deployments</li>
+          <li>Collaborating with clients, Product Owners, QA, and AI teams in Agile sprints</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="date">June 2020 – June 2024</div>
+        <h3>Lead Developer</h3>
+        <div class="company">Droppoint Australia</div>
+        <ul>
+          <li>Led product redesign initiative — architecture revamp and feature overhaul</li>
+          <li>Built and deployed a mobile app from scratch using Ionic Angular & Cordova</li>
+          <li>Migrated UI components from PrimeNG to Material UI for consistency</li>
+          <li>Mentored junior developers and led Agile ceremonies</li>
+          <li>Coordinated recruitment and expanded development teams globally</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="date">Nov 2019 – Feb 2020</div>
+        <h3>Frontend Developer</h3>
+        <div class="company">152HQ</div>
+        <ul>
+          <li>Developed web and mobile interfaces using Angular and Ionic</li>
+          <li>Ported legacy AngularJS 1.5 apps to Angular 8 with Ionic 4</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="date">June 2014 – June 2017</div>
+        <h3>UX Developer</h3>
+        <div class="company">IdentityMine (acquired by Valorem)</div>
+        <ul>
+          <li>Developed applications across Windows, tablet, phone, and Xbox platforms</li>
+          <li>Collaborated with enterprise clients — Microsoft, iHeartRadio, BlackBerry</li>
+          <li>Designed rich UIs in UWP and Silverlight using C# and XAML</li>
+          <li>Mentored junior devs and contributed to resource planning and estimation</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="section-label reveal">Background</div>
+    <h2 class="section-title reveal">Education</h2>
+    <div class="edu-cards">
+      <div class="edu-card reveal">
+        <div class="degree">Master of Computer Science</div>
+        <div class="school">University of Wollongong</div>
+        <div class="details">Majors: Software Engineering & Intelligent Systems<br>Grade: Distinction | 2019</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="degree">B.Tech in Computer Science & Engineering</div>
+        <div class="school">Mar Baselios College of Engineering and Technology</div>
+        <div class="details">Trivandrum, India | CGPA: 7.5/10 | 2014</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:rgba(18,18,26,.5)">
+  <div class="container contact-section">
+    <div class="section-label reveal">Let's Connect</div>
+    <h2 class="section-title reveal">Get in Touch</h2>
+    <div class="contact-links">
+      <a href="mailto:akhil2369492@gmail.com" class="contact-card reveal">
+        <div class="c-icon">✉</div>
+        <div><div class="c-label">Email</div><div class="c-value">akhil2369492@gmail.com</div></div>
+      </a>
+      <a href="tel:+61401880125" class="contact-card reveal">
+        <div class="c-icon">📞</div>
+        <div><div class="c-label">Phone</div><div class="c-value">0401 880 125</div></div>
+      </a>
+      <a href="https://github.com/akhilsivdn" target="_blank" class="contact-card reveal">
+        <div class="c-icon">⟨⟩</div>
+        <div><div class="c-label">GitHub</div><div class="c-value">akhilsivdn</div></div>
+      </a>
+      <a href="https://www.linkedin.com/in/akhil-sivanandan" target="_blank" class="contact-card reveal">
+        <div class="c-icon">in</div>
+        <div><div class="c-label">LinkedIn</div><div class="c-value">akhil-sivanandan</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Akhil Sivanandan. Built with passion and clean code.</p>
+</footer>
+
+<script>
+function closeMenu(){document.querySelector('nav ul').classList.remove('open')}
+
+// Scroll reveal
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Nav background on scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.background=window.scrollY>50?'rgba(10,10,15,.92)':'rgba(10,10,15,.75)';
+});
+</script>
+
+</body>
+</html>
